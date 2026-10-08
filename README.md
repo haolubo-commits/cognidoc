@@ -28,7 +28,7 @@ graph TD
 ## 🌟 Key Features (4-Day Roadmap)
 
 - [x] **Day 1: Scaffolding & Vector Schema**: SQLAlchemy 2.0 models with `pgvector` integration, semantic sliding chunker service, and Pydantic v2 schemas.
-- [ ] **Day 2: Core Retrieval & Search API**: Hybrid search (BM25 keyword + cosine vector distance) and streaming synthesis endpoint.
+- [x] **Day 2: Core Retrieval & Search API**: Ingestion service, embedding normalization, document CRUD and vector similarity search endpoints.
 - [ ] **Day 3: Interactive React Citation Explorer**: Split-screen document reader with glowing chunk highlights and similarity confidence badges.
 - [ ] **Day 4: Benchmarks & Polish**: Pytest integration tests, synthetic retrieval benchmarks, and Docker compose environment.
 

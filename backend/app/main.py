@@ -5,6 +5,7 @@ FastAPI application entrypoint for CogniDoc.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
+from app.api.v1.api import api_router
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -23,6 +24,9 @@ if settings.CORS_ORIGINS:
         allow_headers=["*"],
     )
 
+# Include v1 API routes
+app.include_router(api_router, prefix=settings.API_V1_STR)
+
 
 @app.get("/health", tags=["Health"])
 def health_check():
@@ -40,5 +44,6 @@ def root():
     return {
         "message": f"Welcome to {settings.PROJECT_NAME} API",
         "docs": "/docs",
-        "health": "/health"
+        "health": "/health",
+        "api_v1": settings.API_V1_STR
     }
