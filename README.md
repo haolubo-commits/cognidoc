@@ -29,7 +29,7 @@ graph TD
 
 - [x] **Day 1: Scaffolding & Vector Schema**: SQLAlchemy 2.0 models with `pgvector` integration, semantic sliding chunker service, and Pydantic v2 schemas.
 - [x] **Day 2: Core Retrieval & Search API**: Ingestion service, embedding normalization, document CRUD and vector similarity search endpoints.
-- [ ] **Day 3: Interactive React Citation Explorer**: Split-screen document reader with glowing chunk highlights and similarity confidence badges.
+- [x] **Day 3: Interactive React Citation Explorer**: Split-screen document reader with glowing chunk highlights and similarity confidence badges.
 - [ ] **Day 4: Benchmarks & Polish**: Pytest integration tests, synthetic retrieval benchmarks, and Docker compose environment.
 
 ---
@@ -38,12 +38,11 @@ graph TD
 
 ### Prerequisites
 - Python 3.11+
+- Node.js 18+
 - PostgreSQL 15+ with `pgvector` extension enabled
 
-### Setup
+### Backend Setup
 ```bash
-# Clone the repository
-git clone https://github.com/haolubo-commits/cognidoc.git
 cd cognidoc/backend
 
 # Create virtual environment
@@ -56,6 +55,17 @@ pip install -r requirements.txt
 # Run the API server
 uvicorn app.main:app --reload --port 8000
 ```
+
+### Frontend Setup
+```bash
+cd cognidoc/frontend
+
+# Install dependencies and start Vite dev server
+npm install
+npm run dev
+```
+Open `http://localhost:5173` to launch the Interactive Citation Explorer.
+
 
 ---
 
