@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Attention Is All You Need \u2014 Core Architecture & Math",
+    "filename": "vaswani_transformer_core.pdf",
+    "content_type": "application/pdf",
+    "meta_info": {
+      "field": "Machine Learning",
+      "year": 2017,
+      "citations": 110000,
+      "tags": [
+        "Attention",
+        "Transformer",
+        "Deep Learning"
+      ]
+    },
+    "content": "The Transformer is the first transduction model relying entirely on self-attention to compute representations of its input and output without using sequence-aligned RNNs or convolution.\n\nAn attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.\n\nScaled Dot-Product Attention divides queries and keys by sqrt(d_k) before applying the softmax operator to prevent pushing the softmax function into regions that have extremely small gradients in high dimensions.\n\nMulti-head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this representation capacity."
+  },
+  {
+    "title": "pgvector Architecture: HNSW Graphs vs IVFFlat Indexes",
+    "filename": "pgvector_indexing_internals.md",
+    "content_type": "text/markdown",
+    "meta_info": {
+      "field": "Databases",
+      "engine": "PostgreSQL 16",
+      "tags": [
+        "pgvector",
+        "HNSW",
+        "Vector Search",
+        "ANN"
+      ]
+    },
+    "content": "pgvector adds vector similarity search capabilities directly to PostgreSQL, supporting L2 distance, inner product, and cosine distance operators (<=>).\n\nHierarchical Navigable Small World (HNSW) graphs offer significantly higher queries per second (QPS) and recall than IVFFlat indexes, though requiring more memory and build time during indexing.\n\nIn HNSW, search begins at the top hierarchical layer where vertices have long-range edges, quickly zooming into the target cluster before descending to the bottom greedy local search layer.\n\nFor cosine distance, vectors must either be normalized to unit length or indexed using the vector_cosine_ops operator class to ensure accurate nearest neighbor rankings across large multi-tenant knowledge bases."
+  },
+  {
+    "title": "Context Compression & KV-Cache PagedAttention Dynamics",
+    "filename": "vllm_paged_attention_study.txt",
+    "content_type": "text/plain",
+    "meta_info": {
+      "field": "LLM Inference Systems",
+      "tags": [
+        "KV Cache",
+        "vLLM",
+        "Memory Optimization"
+      ]
+    },
+    "content": "During autoregressive LLM generation, keys and values of previous tokens are cached in GPU high-bandwidth memory (HBM). Standard contiguous allocation causes up to 60-80% memory waste due to internal and external fragmentation.\n\nPagedAttention manages KV cache blocks similarly to virtual memory pages in operating systems, storing non-contiguous physical pages.\n\nThis near-zero memory waste enables larger batch sizes, boosting overall system throughput by 2x to 4x while strictly preserving generation accuracy."
+  }
+]
