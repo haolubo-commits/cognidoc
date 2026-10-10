@@ -11,5 +11,7 @@ venv/
 htmlcov/
 dist/
 build/
+node_modules/
+.vite/
 *.egg-info/
 .DS_Store
